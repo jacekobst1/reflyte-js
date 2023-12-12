@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('REFLYTE: Script loaded');
     const forms = document.querySelectorAll('form');
 
     forms.forEach(function (form) {
@@ -7,6 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
             console.log('REFLYTE: Form submitted');
 
+            // TODO
+            //  1. trzeba wziąć pod uwagę sytuację, w której pole email nie jest typu email, a text
+            // sprawdzimy wtedy name, aria-label, placeholder i class
+            // można też po prostu sprawdzić każde po kolei, czy wartość pola zawiera w sobie znak @
+            // 2. trzeba sprawdzić jak zachowuje się skrypt, gdy formularz nie jest zwykłym formem POST, ale jest obsługiwany przez JS (np. axios.POST)
+            // 3. trzeba sprawdzić, czy skrypt działa na danych, które nie zostają poprawnie zwalidowane w formularzu - wtedy nie możemy słać danych do Reflyte
+            // https://klosinski.net/
             const emailInput = form.querySelector('input[type="email"]');
             if (emailInput) {
                 const email = emailInput.value;
