@@ -27,12 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function sendEmailToApp(email) {
         const url = 'https://eoesnoxm4v1ivdg.m.pipedream.net';
-        const newsletterId = getNewsletterId();
+        const refCode = getRefCode();
 
         fetch(url, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email: email, newsletterId: newsletterId}),
+            body: JSON.stringify({email: email, ref_code: refCode}),
         })
             .then(function (response) {
                 if (!response.ok) {
@@ -48,9 +48,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    function getNewsletterId() {
-        const scriptTag = document.getElementById('reflyte-script');
+    function getRefCode()
+    {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
 
-        return scriptTag.getAttribute('data-newsletter-id');
+        return urlParams.get('reflyteCode');
     }
 });
