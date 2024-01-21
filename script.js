@@ -29,6 +29,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const url = 'https://eoesnoxm4v1ivdg.m.pipedream.net';
         const refCode = getRefCode();
 
+        if (!refCode) {
+            return;
+        }
+
         fetch(url, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
