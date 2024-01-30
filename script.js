@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function sendEmailToApp(email) {
-        const url = 'https://eoesnoxm4v1ivdg.m.pipedream.net';
+        const url = 'https://api.reflyte.com/api/subscribers/from-landing';
         const refCode = getRefCode();
 
         if (!refCode) {
